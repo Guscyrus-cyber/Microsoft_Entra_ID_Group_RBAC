@@ -13,43 +13,33 @@ This image confirms the setup.
 Total groups: 1\
 Security groups: 1\
 Cloud groups: 1 (Image 1)\
-\
-\
-\
+
 Step 2 — Opening the existing group\
 This image confirms the existing group:
 
-### Group: SOC-Analysts\
+### Group: SOC-Analysts
 Group type: Security\
 Membership type: Assigned (Image 2)\
-\
-\
+
 Step 3 — Opening the SOC-Analysts group (Overview )
 
 Trying to verify which user is a member of this security group before moving to the Azure RBAC permission itself.\
 This images confirms the SOC-Analysts security group has:
 
-### Total direct members: 1\
+Total direct members: 1
 Users: 1\
 Type: Security\
 Membership type: Assigned\
 Source: Cloud (Images 3 and 4)\
-\
-\
-\
-\
-\
-\
+
 Step 4 — Verifying the member
 
-### I want to confirm that the existing test/SOC user is the one inside SOC-Analysts.\
+I want to confirm that the existing test/SOC user is the one inside SOC-Analysts.
 This image confirms the membership is correct:\
 SOC-Analysts security group → SOC Test User\
 And the identity side of the RBAC chain is verified:\
 SOC Test User → SOC-Analysts → Azure RBAC role → Azure resource (Image 5)\
-\
-\
-\
+
 Step 5 — Check the Azure role assignment
 
 Azure role assignments
@@ -73,15 +63,13 @@ SOC-Lab-RG (Resource Group)
 
 That means the SOC Test User inherits the Microsoft Sentinel Reader permission through membership in the SOC-Analysts group. (Image 6)
 
-### \
-\
 Step 6 — Testing the RBAC permission as the SOC Test User
 
 I am going to verify what the SOC Test User can actually access, rather than only looking at the administrator configuration.
 
 I open a new browser window. I will use that separate window to sign in as SOC Test User, so the administrator session remains untouched.
 
-### Step 7 — Opening Azure as the SOC Test User\
+Step 7 — Opening Azure as the SOC Test User\
 I open: [Microsoft Azure Portal](https://portal.azure.com/?utm_source=chatgpt.com)\
 The next login will be the SOC Test User so I can test the inherited Microsoft Sentinel Reader RBAC permission.\
 \
@@ -100,11 +88,6 @@ The test account does not have broad administrative/subscription permissions.
 
 (Images 7 and 8)
 
-### \
-\
-\
-\
-\
 Step 9 — Test the Sentinel Reader permission
 
 Now I need to see whether the permission I deliberately granted works.
@@ -139,12 +122,6 @@ Workspace: soc-sentinel-workspace
 
 This demonstrates the purpose of the Microsoft Sentinel Reader role: The SOC user can view Sentinel security information without being given broad Azure administrative privileges. Earlier, Azure also showed that this account could not view subscription credits, which is useful evidence of restricted access. (Images 10, 11, 12, and 13)
 
-### \
-
-### \
-\
-\
-
 Step 11 — Final RBAC restriction tests\
 I click on: Configuration, Then Data connectors
 
@@ -154,10 +131,7 @@ The images show SOC Test User can successfully view the Sentinel Data connectors
 
 This demonstrates the Microsoft Sentinel Reader role working as intended: the analyst can inspect Sentinel security information but should not have administrative control over the environment.\
 (Images 14 and 15)\
-\
 
-### \
-\
 Step 12 — One final RBAC test
 
 I Click on Microsoft Entra ID in the connector list.
@@ -173,10 +147,8 @@ See Microsoft Entra ID.\
 See its status as Connected.\
 Read the connector information.
 
-### This confirms the SOC-Analysts → Microsoft Sentinel Reader RBAC assignment is functioning for read access. The test account can inspect Sentinel resources without being given full administrative control. (Image 16)\
-\
-\
-\
+This confirms the SOC-Analysts → Microsoft Sentinel Reader RBAC assignment is functioning for read access. The test account can inspect Sentinel resources without being given full administrative control. (Image 16)
+
 Step 13 — Final RBAC Verification
 
 I want to prove that the SOC Test User can read Sentinel but cannot administer it.
