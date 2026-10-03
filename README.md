@@ -17,7 +17,7 @@ Cloud groups: 1 (Image 1)\
 Step 2 — Opening the existing group\
 This image confirms the existing group:
 
-### Group: SOC-Analysts
+Group: SOC-Analysts
 Group type: Security\
 Membership type: Assigned (Image 2)\
 
@@ -30,7 +30,7 @@ Total direct members: 1
 Users: 1\
 Type: Security\
 Membership type: Assigned\
-Source: Cloud (Images 3 and 4)\
+Source: Cloud (Images 3 and 4)
 
 Step 4 — Verifying the member
 
